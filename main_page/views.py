@@ -1,46 +1,54 @@
 from django.shortcuts import render
-from json import dumps
-
+from .models import blogs_models , portfolio_models
 # Create your views here.
 
 def home(request) :
-    if request.method == 'POST' :
-        classes_attended = request.POST['classes_attended']
-        classes_held = request.POST['classes_held']
-        
+    all_blog      = blogs_models.objects.all()
+    top_blog_view = all_blog.filter(top_blog=True)
 
-    
-        
-        classes_attended=int(classes_attended)
-        classes_held = int(classes_held)
+    all_portfolio = portfolio_models.objects.all()
+    top_portfolio= all_portfolio.filter(top_portfolio=True)
 
-        attendance_percentage =int((classes_attended) / (classes_held) * 100)
-        current_attendance =  (classes_attended) / (classes_held) 
+    context = {
+        'top_blog' : top_blog_view[::-1] ,
+        'top_portfolio' : top_portfolio
+    }
+    print(top_blog_view)
+    return render(request, 'main_page/index.html',context)
+
+def single_blog(request ,pk) :
+    all_blog = blogs_models.objects.all()
+    blog_detail = all_blog.filter(id=pk)
+
+    context = {
+        "blog_detail":blog_detail
+    }
+    return render(request, 'main_page/single-blog.html',context)
+
+def all_blog(request) :
+    all_blog = blogs_models.objects.all()
+    top_blog_view = all_blog.filter(top_blog=True)
+
+    context = {
+        "all_blog" :all_blog ,
+        "top_blog" : top_blog_view
+    }
+    return render(request, 'main_page/all_blog.html', context)
 
 
-        required_attendance = 0.75 
-        remaining_classes = classes_held
-        classes_attended = current_attendance * classes_held
-            
-        while (int(classes_attended) / int(remaining_classes))  < required_attendance:
-            remaining_classes += 1
-            classes_attended += 1
-            
-        need_to_attend=remaining_classes - classes_held
+def single_portfolio(request , pk) :
+    all_portfolio = portfolio_models.objects.all()
+    portfolio_detail= all_portfolio.filter(id=pk)
 
-        class_data=[]
-        class_data.extend([classes_attended,classes_held,attendance_percentage,need_to_attend])
-        print(class_data)
-        class_data=dumps(class_data)
+    context = {
+        "portfolio_detail" : portfolio_detail
+    }
+    return render(request, 'main_page/single-portfolio.html',context)
 
-        context = {
-                    "classes_attended":classes_attended,
-                   "classes_held":classes_held,
-                "attendance_percentage":attendance_percentage ,
-                "need_to_attend":need_to_attend,
-                "class_data" : class_data
+def all_portfolio(request) :
+    all_portfolio = portfolio_models.objects.all()
 
-                }
-        return render(request, 'forms.html',context)
-    return render(request, 'forms.html')
-
+    context = {
+        "all_portfolio" :all_portfolio
+    }
+    return render(request, 'main_page/all_portfolio.html', context)
