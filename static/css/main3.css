@@ -3115,7 +3115,7 @@ label {
 
 .filter-bar {
   padding: 0px 20px 10px 20px;
-  background: #FA6F00; }
+  background: #ffaa00; }
   .filter-bar a, .filter-bar i {
     color: #000; }
 
@@ -3291,7 +3291,7 @@ label {
 
 .sidebar-categories .head {
   line-height: 60px;
-  background: #FA6F00;
+  background: #ffaa00;
   padding: 0 30px;
   font-size: 16px;
   font-weight: 400;
@@ -3321,7 +3321,7 @@ label {
   margin-top: 50px; }
   .sidebar-filter .top-filter-head {
     line-height: 60px;
-    background: #FA6F00;
+    background: #ffaa00;
     padding: 0 30px;
     font-size: 16px;
     font-weight: 400;
