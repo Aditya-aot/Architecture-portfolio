@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@ry@rm#ttp3jk1u_vuax2_l=#^rr&3yq8vp5eku)d!-r%$r6t+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["adityaadi.pythonanywhere.com"]
+ALLOWED_HOSTS = ['*',"adityaadi.pythonanywhere.com"]
 
 
 # Application definition
@@ -117,19 +117,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
 STATIC_URL = 'static/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
-# python anywhere
-STATIC_ROOT = "/home/adityaadi/Architecture-portfolio/static"
 
 # python anywhere
+STATIC_ROOT = '/home/adityaadi/Architecture-portfolio/static'
+if DEBUG:
+        STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'static')
+       ]
+else:
+        STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+# python anywhere
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
