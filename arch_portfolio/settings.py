@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@ry@rm#ttp3jk1u_vuax2_l=#^rr&3yq8vp5eku)d!-r%$r6t+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app','*',"adityaadi.pythonanywhere.com"]
+ALLOWED_HOSTS = ['.vercel.app','*',"adityaadi.pythonanywhere.com",'.now.sh']
 
 
 # Application definition
@@ -139,7 +139,9 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-
+# vercel
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# vercel
 
 # python anywhere
 STATIC_ROOT = '/home/adityaadi/Architecture-portfolio/static'
