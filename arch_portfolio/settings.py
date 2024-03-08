@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@ry@rm#ttp3jk1u_vuax2_l=#^rr&3yq8vp5eku)d!-r%$r6t+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',"adityaadi.pythonanywhere.com"]
+ALLOWED_HOSTS = ['.vercel.app','*',"adityaadi.pythonanywhere.com"]
 
 
 # Application definition
@@ -75,10 +75,22 @@ WSGI_APPLICATION = 'arch_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'IPqmXCkHPWcPnPBcubuuLtmYcYcriFvf',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '42988',
     }
 }
 
