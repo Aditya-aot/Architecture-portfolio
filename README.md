@@ -4,7 +4,7 @@
 -
 http://adityaadi.pythonanywhere.com/ 
 
-link to webapp :-  http://adityaadi.pythonanywhere.com/ 
+link to webapp :-  http://adityaadi.pythonanywhere.com/                                                               
 link to git repository :- https://github.com/Aditya-aot/Architecture-portfolio?tab=readme-ov-file
 i made this portfolio for Architecture so that they can share there work and experience in clean way and easy to read .
 
